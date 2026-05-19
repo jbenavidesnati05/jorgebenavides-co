@@ -68,26 +68,26 @@ export default function About() {
           {/* Left: text */}
           <FadeUp delay={0.1}>
             <div className="space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed text-[15px]">
-              <p className="text-base text-slate-800 dark:text-slate-200">
-                Mi recorrido combina tecnología, producto y negocio: más de{' '}
-                <span className="text-blue-500 font-semibold">3 años construyendo soluciones digitales en fintech</span>{' '}
-                y 7 años en proyectos de ingeniería, conectando necesidades técnicas, clientes y soluciones viables.
+              <p>
+                Soy desarrollador de software con más de 3 años en fintech, y en ese tiempo descubrí
+                que lo que más me apasiona no es solo construir la solución, sino entender el problema,
+                priorizarlo y conectarlo con el negocio. Por eso hoy oriento mi carrera al rol de{' '}
+                <span className="text-blue-500 dark:text-blue-400 font-semibold">Product Owner</span>.
               </p>
               <p>
-                He trabajado cerca de Product Owners, Product Managers, stakeholders, QA y equipos de
-                desarrollo, participando en refinamiento de historias de usuario, análisis de requerimientos,
-                validación funcional y entrega de valor en entornos ágiles.
+                He trabajado de la mano de Product Owners, Product Managers y stakeholders en
+                refinamiento de historias de usuario, definición de criterios de aceptación,
+                priorización del{' '}
+                <span className="text-blue-500 font-semibold">Product Backlog</span> y validación
+                funcional end-to-end en entornos Scrum. Mi base técnica me permite conversar con
+                desarrollo y QA sin traductor, y mis 7 años previos en proyectos de ingeniería me
+                dieron el músculo para levantar necesidades, sustentar viabilidad y negociar con clientes.
               </p>
               <p>
-                Actualmente oriento mi carrera hacia el rol de{' '}
-                <span className="text-blue-500 dark:text-blue-400 font-semibold">Product Owner</span>, con una
-                base técnica que me permite entender cómo se construyen las soluciones y una visión de negocio
-                enfocada en generar valor real.
-              </p>
-              <p>
-                Me interesa crear productos digitales, automatizaciones y soluciones apoyadas en{' '}
-                <span className="text-blue-500 dark:text-blue-400 font-semibold">inteligencia artificial</span>{' '}
-                que simplifiquen procesos, mejoren decisiones y generen impacto medible.
+                Busco mi primera oportunidad formal como{' '}
+                <span className="text-blue-500 dark:text-blue-400 font-semibold">Product Owner Junior</span>{' '}
+                o Asociado de Producto, en un equipo donde pueda aportar criterio técnico, foco en el
+                usuario y entrega real de valor sprint a sprint.
               </p>
 
               <motion.a

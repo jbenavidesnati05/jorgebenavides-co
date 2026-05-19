@@ -1,52 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Download, ChevronDown } from 'lucide-react'
+import { Download, ChevronDown, Linkedin } from 'lucide-react'
 import Image from 'next/image'
 
-const roles = [
-  'Product Owner',
-  'Tech Product Builder',
-  'AI & Automation Enthusiast',
-  'Software Developer',
-  'Digital Solutions Creator',
-]
-
-function useTypewriter(words: string[], speed = 90, pause = 2200) {
-  const [index, setIndex] = useState(0)
-  const [subIndex, setSubIndex] = useState(0)
-  const [deleting, setDeleting] = useState(false)
-  const [text, setText] = useState('')
-
-  useEffect(() => {
-    const current = words[index]
-
-    if (!deleting && subIndex === current.length + 1) {
-      const t = setTimeout(() => setDeleting(true), pause)
-      return () => clearTimeout(t)
-    }
-    if (deleting && subIndex === 0) {
-      setDeleting(false)
-      setIndex((i) => (i + 1) % words.length)
-      return
-    }
-
-    const t = setTimeout(
-      () => {
-        setText(current.substring(0, subIndex))
-        setSubIndex((s) => s + (deleting ? -1 : 1))
-      },
-      deleting ? speed / 2 : speed
-    )
-    return () => clearTimeout(t)
-  }, [subIndex, deleting, index, words, speed, pause])
-
-  return text
-}
+const CV_PATH = '/cv/CV_Jorge_Benavides_Product_Owner_2026.pdf'
 
 export default function Hero() {
-  const role = useTypewriter(roles)
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.warn('[TODO] Reemplaza el PDF en /public/cv/CV_Jorge_Benavides_Product_Owner_2026.pdf')
+  }, [])
 
   return (
     <section
@@ -74,46 +39,46 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="font-mono text-sm text-blue-400 tracking-[0.2em] uppercase mb-5"
           >
-            Product Owner
+            Jorge Benavides Nati
           </motion.p>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-3 text-white">
-            <span className="text-gradient">Jorge</span>
-            <br />
-            <span>Benavides</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-5 text-white">
+            Product Owner en formación,{' '}
+            <span className="text-gradient">con base técnica real.</span>
           </h1>
 
-          <div className="h-10 mb-6 flex items-center">
-            <p className="text-xl md:text-2xl text-slate-300 font-medium">
-              <span className="text-blue-400">{role}</span>
-              <span className="ml-0.5 text-blue-500 animate-pulse font-light">|</span>
-            </p>
-          </div>
+          <p className="text-slate-300 text-base md:text-lg mb-4 max-w-md leading-relaxed">
+            Vengo del desarrollo de software en fintech. Hoy quiero liderar producto: priorizar
+            backlog, refinar historias y entregar valor con criterio técnico y visión de negocio.
+          </p>
 
-          <p className="text-slate-400 text-base md:text-lg mb-10 max-w-md leading-relaxed">
-            Visión técnica + entrega de valor.
-            <br />
-            <span className="text-slate-500">Fintech · Ágil · Medellín, Colombia.</span>
+          <p className="text-slate-500 text-sm mb-10 font-mono">
+            +3 años en fintech · Scrum · Azure DevOps · Medellín, Colombia.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <motion.a
-              href="#proyectos"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-2xl transition-colors duration-200 shadow-lg shadow-blue-500/25"
-            >
-              Ver Proyectos
-            </motion.a>
-            <motion.a
-              href="/CV_Jorge_Benavides_ATS_PO_05_2026.docx"
+              href={CV_PATH}
               download
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
+              aria-label="Descargar CV de Jorge Benavides Nati"
+              className="px-7 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-2xl transition-colors duration-200 shadow-lg shadow-blue-500/25 flex items-center gap-2"
+            >
+              <Download size={16} aria-hidden="true" />
+              Descargar CV
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/jorge-benavides-productowner"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              aria-label="Ver perfil de LinkedIn de Jorge Benavides (abre en nueva pestaña)"
               className="px-7 py-3.5 glass rounded-2xl text-white font-semibold transition-all duration-200 hover:bg-white/10 flex items-center gap-2"
             >
-              <Download size={16} />
-              Descargar CV
+              <Linkedin size={16} aria-hidden="true" />
+              Contactar por LinkedIn
             </motion.a>
           </div>
 
@@ -132,7 +97,7 @@ export default function Hero() {
             >
               LinkedIn ↗
             </a>
-            <span className="text-slate-700">·</span>
+            <span className="text-slate-700" aria-hidden="true">·</span>
             <a
               href="mailto:jbenavidesnati05@gmail.com"
               className="text-xs text-slate-500 hover:text-blue-400 transition-colors font-mono"
@@ -150,15 +115,13 @@ export default function Hero() {
           className="flex justify-center"
         >
           <div className="relative animate-float">
-            {/* Outer glow rings */}
-            <div className="absolute -inset-6 rounded-full border border-blue-500/15 animate-pulse" />
-            <div className="absolute -inset-12 rounded-full border border-blue-500/8" />
+            <div className="absolute -inset-6 rounded-full border border-blue-500/15 animate-pulse" aria-hidden="true" />
+            <div className="absolute -inset-12 rounded-full border border-blue-500/8" aria-hidden="true" />
 
-            {/* Photo container */}
             <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden glow-ring border-4 border-blue-500/40 animate-glow-pulse">
               <Image
                 src="/jorge.png"
-                alt="Jorge Benavides Nati — Product Owner & Software Developer"
+                alt="Jorge Benavides Nati — Product Owner en formación con base técnica en fintech"
                 fill
                 className="object-cover"
                 priority
@@ -166,14 +129,14 @@ export default function Hero() {
               />
             </div>
 
-            {/* Floating badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
               className="absolute -bottom-4 -right-4 glass rounded-2xl px-4 py-2 shadow-xl"
+              aria-label="Disponible para nuevas oportunidades"
             >
-              <p className="text-xs text-slate-400 dark:text-slate-400 font-mono">Disponible para</p>
+              <p className="text-xs text-slate-400 font-mono">Disponible para</p>
               <p className="text-sm font-bold text-blue-400">nuevas oportunidades</p>
             </motion.div>
           </div>
@@ -186,10 +149,10 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
+        aria-label="Ir a la sección Perfil"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-600 hover:text-blue-400 transition-colors"
-        aria-label="Scroll down"
       >
-        <ChevronDown size={28} className="animate-bounce" />
+        <ChevronDown size={28} className="animate-bounce" aria-hidden="true" />
       </motion.a>
     </section>
   )
